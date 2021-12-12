@@ -12,8 +12,8 @@ vue3 vue-router vuex vite axios
 express
 
 ## 项目展示
-![首页](public\Intro\商品首页.jpg)
-![详细信息页](public\Intro\购物车页面.jpg)
-![购物车页](public\Intro\商品详细信息页面.jpg)
+![首页](https://github.com/kelokeloo/ShoppingCar/blob/master/public/Intro/%E5%95%86%E5%93%81%E9%A6%96%E9%A1%B5.jpg)
+![详细信息页](https://github.com/kelokeloo/ShoppingCar/blob/master/public/Intro/%E5%95%86%E5%93%81%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF%E9%A1%B5%E9%9D%A2.jpg)
+![购物车页](https://github.com/kelokeloo/ShoppingCar/blob/master/public/Intro/%E8%B4%AD%E7%89%A9%E8%BD%A6%E9%A1%B5%E9%9D%A2.jpg)
 
 
