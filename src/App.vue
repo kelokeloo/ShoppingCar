@@ -12,8 +12,15 @@
           <div class="nav"><navVue></navVue></div>
           <div class="car">
             <router-link to="/shopCar" class="carContainer">
-              <car-vue></car-vue>
+              <car-vue 
+                style="transition: all 0.2s;"
+                :style="carEffectData.carEffect === true? carEffectData.carStyle : ''"
+              ></car-vue>
+              <div class="num">
+                {{Count}}
+              </div>
             </router-link>
+            
           </div>
         </div>
       </div>
@@ -27,11 +34,29 @@
 import CarVue from "./components/shopCar/Car.vue"
 import LogoVue from "./components/LOGO/Logo.vue"
 import navVue from "./components/Header/nav.vue"
-
+import {computed, reactive} from 'vue'
+import store from "./Vuex/vuex"
 
   export default {
     setup(props) {
-      
+      // 购物车动画效果
+      const carEffectData = reactive({
+        carEffect: false,
+        carStyle: {
+          transform: 'scale(1.5)'
+        }
+      })  
+      const Count = computed(()=>{
+        carEffectData.carEffect = true
+        setTimeout(() => {
+          carEffectData.carEffect = false
+        }, 200);
+        return store.getters.Count
+      })
+      return {
+        Count,
+        carEffectData
+      }
     },
     components:{
       CarVue,LogoVue,navVue
@@ -61,6 +86,23 @@ import navVue from "./components/Header/nav.vue"
         .carContainer{
           width: 2.5rem;
           height: 2.5rem;
+          position: relative;
+          >.num{
+          width: 1.3rem;
+          height: 1.3rem;
+          border-radius: 50%;
+          line-height: 1.3rem;
+          text-align: center;
+          color: white;
+          font-weight: 700;
+          background-color: red;
+          // padding: 0.3rem;
+          font-size: 0.3rem;
+          position: absolute;
+          top:-0.5rem;
+          right: -0.5rem;
+          
+        }
         }
         flex: 1;
         display: flex;
@@ -90,6 +132,10 @@ header {
     // border-bottom: 1px solid #999;
     box-shadow: 0px 2px 3px #999;
   }
+}
+
+.carStyle {
+  transform: scale(2);
 }
 
 </style>
