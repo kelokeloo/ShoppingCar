@@ -27,7 +27,6 @@
         <button class="marginTop btnSubmit bR"
           @click="addGoods(goodData.goodDetail, OptionData.typeIndex, OptionData.colorIndex)"
         >
-        {{OptionData}}
           加入购物车
         </button>
         <!-- 加入购物车 END-->

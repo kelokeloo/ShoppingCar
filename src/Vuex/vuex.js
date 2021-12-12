@@ -6,6 +6,20 @@ const store = createStore({
     ShopCarList:[]
 
   },
+  getters:{
+    allPrice(state){
+      const sum = state.ShopCarList.reduce((prev,item)=>{
+        return prev +  item.Price * item.num
+      }, 0)
+      return sum
+    },
+    Count(state){
+      const sum = state.ShopCarList.reduce((prev,item)=>{
+        return prev + item.num
+      }, 0)
+      return sum
+    }
+  },
   mutations:{
     addGoods(state, {goodInfo, typeIndex, colorIndex}){
       // goods {'商品名字','版本', '颜色','价格', '商品图片'}
@@ -39,6 +53,27 @@ const store = createStore({
       }
       
       console.log(state.ShopCarList);
+    },
+    increaseGoodsSum(state, goodsInfo){
+      // console.log('goodsInfo', goodsInfo);
+      // console.log('store', store.state.ShopCarList[0])
+      const index = store.state.ShopCarList.findIndex((item)=>{
+        return item.goodId === goodsInfo.goodId && 
+          item.type === goodsInfo.type &&
+          item.color === goodsInfo.color
+      })
+      store.state.ShopCarList[index].num++
+      // console.log(index);
+    },
+    reduceGoodsSum(state, goodsInfo){
+      const index = store.state.ShopCarList.findIndex((item)=>{
+        return item.goodId === goodsInfo.goodId && 
+          item.type === goodsInfo.type &&
+          item.color === goodsInfo.color
+      })
+      if(store.state.ShopCarList[index].num>=2){
+        store.state.ShopCarList[index].num--
+      };
     }
   }
 })

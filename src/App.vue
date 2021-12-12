@@ -3,17 +3,17 @@
     <!-- 头部 -->
     <header>
       <div class="mainContainer">
-        <div class="logo">
+        <router-link to="/" class="logo">
           <div class="logoContainer">
             <LogoVue bgColor="#ff6a00"  class="bR"></LogoVue>
           </div>
-        </div>
+        </router-link>
         <div class="navContainer">
           <div class="nav"><navVue></navVue></div>
           <div class="car">
-            <a href="#" class="carContainer">
+            <router-link to="/shopCar" class="carContainer">
               <car-vue></car-vue>
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
